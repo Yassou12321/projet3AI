@@ -22,6 +22,8 @@ Chaque semaine, documenter:
 - [x] Développement de l'interface Streamlit v1.0
 - [x] Intégration de l'API OpenAI
 - [x] Mise en place de la gestion de session
+- [x] Configuration de la clé API OpenAI (avec achat de crédit)
+- [x] Premier test de l'application réussi
 
 #### 🤖 Apprentissages avec l'IA
 **Outils utilisés**: ChatGPT, Claude
@@ -55,6 +57,15 @@ Chaque semaine, documenter:
    - Problème: .env non chargé correctement au début
    - Solution: Ajout de `python-dotenv` et `load_dotenv()`
    - Apprentissage: Toujours vérifier que les dépendances sont installées
+3. **Quota OpenAI API - Erreur 429**
+   - Problème: Crédit gratuit OpenAI épuisé lors des premiers tests
+   - Solution: Ajout d'une carte bancaire et achat de crédit
+   - **Coût: 7 USD (8 USD avec taxes)** 💰
+   - Apprentissage: L'API OpenAI nécessite un paiement après le crédit gratuit initial
+
+#### 💰 Coûts du projet
+- **OpenAI API**: 7 USD + taxes = **8 USD total**
+- Note: Utilisation de gpt-4o-mini pour minimiser les coûts (~$0.15 par 1M tokens)
 
 #### 🎯 Objectifs semaine 2
 - [ ] Améliorer l'interface utilisateur (design, UX)
