@@ -9,7 +9,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 1 (2 au 6 décembre 2024)
+## Semaine 1
 
 ### 👤 Yassine Adibe
 
@@ -78,7 +78,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 2 (9 au 13 décembre 2024)
+## Semaine 2
 
 ### 👤 Yassine Adibe
 
@@ -99,7 +99,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 3 (16 au 20 décembre 2024)
+## Semaine 3
 
 ### 👤 Yassine Adibe
 
@@ -108,7 +108,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 4 (6 au 10 janvier 2025)
+## Semaine 4
 
 ### 👤 Yassine Adibe
 
@@ -117,7 +117,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 5 (13 au 17 janvier 2025)
+## Semaine 5
 
 ### 👤 Yassine Adibe
 
