@@ -1,0 +1,15 @@
+[theme]
+# Frutiger Aero Archive colors - Dark mode with green accents
+primaryColor = "#3cda56"        # Bright green (link color)
+backgroundColor = "#303030"      # Dark gray background
+secondaryBackgroundColor = "#272727"  # Darker gray for panels
+textColor = "#dadada"           # Light gray text
+
+# Police
+font = "sans serif"
+
+[client]
+showErrorDetails = false
+
+[server]
+headless = true

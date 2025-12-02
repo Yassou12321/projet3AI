@@ -1,10 +1,10 @@
 # Feuille de route - Projet 3
 
-Plan détaillé des 5 semaines de développement
+Plan détaillé des 5 parties de développement
 
 ---
 
-## Semaine 1: Configuration et base (2-6 décembre)
+## Partie 1: Configuration et base (2-6 décembre)
 
 ### Objectifs principaux
 - Choix de la technologie validé
@@ -23,7 +23,7 @@ Plan détaillé des 5 semaines de développement
 
 ---
 
-## Semaine 2: Amélioration UX (9-13 décembre)
+## Partie 2: Amélioration UX (9-13 décembre)
 
 ### Objectifs principaux
 - [ ] Améliorer l'interface utilisateur
@@ -61,7 +61,7 @@ Plan détaillé des 5 semaines de développement
 
 ---
 
-## Semaine 3: Intégration LangChain (16-20 décembre)
+## Partie 3: Intégration LangChain (16-20 décembre)
 
 ### Objectifs principaux
 - [ ] Intégrer LangChain dans l'application
@@ -99,7 +99,7 @@ Plan détaillé des 5 semaines de développement
 
 ---
 
-## Semaine 4: Fonctionnalités avancées (6-10 janvier)
+## Partie 4: Fonctionnalités avancées (6-10 janvier)
 
 ### Objectifs principaux
 - [ ] Implémenter au moins 2 fonctionnalités avancées
@@ -150,7 +150,7 @@ Plan détaillé des 5 semaines de développement
 
 ---
 
-## Semaine 5: Finalisation et démo (13-17 janvier)
+## Partie 5: Finalisation et démo (13-17 janvier)
 
 ### Objectifs principaux
 - [ ] Finaliser le rapport (3-5 pages)
@@ -257,7 +257,7 @@ Plan détaillé des 5 semaines de développement
 - [ ] Instructions d'installation testées
 
 **Git/GitHub**
-- [ ] Commits réguliers (3-5 par semaine minimum)
+- [ ] Commits réguliers (3-5 par partie minimum)
 - [ ] Messages de commit descriptifs
 - [ ] Branches organisées (optionnel)
 - [ ] Issues/PR utilisées (optionnel)
@@ -302,8 +302,8 @@ Plan détaillé des 5 semaines de développement
 
 ### Suivi régulier (10%)
  **Pour exceller**:
-- Commits réguliers (pas tout en dernière semaine!)
-- Journal mis à jour chaque semaine
+- Commits réguliers (pas tout en dernière partie!)
+- Journal mis à jour chaque partie
 - Progression visible sur GitHub
 - Communication proactive avec l'enseignant
 

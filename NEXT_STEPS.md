@@ -15,7 +15,7 @@ Votre projet **projet3AI** est maintenant complètement configuré avec:
 
 2. **requirements.txt**
    - Toutes les dépendances nécessaires
-   - Préparé pour LangChain (semaine 3)
+   - Préparé pour LangChain (partie 3)
    - Commentaires pour extensions futures
 
 3. **README.md**
@@ -26,8 +26,8 @@ Votre projet **projet3AI** est maintenant complètement configuré avec:
    - Critères d'évaluation
 
 4. **journal.md**
-   - Template pour les 5 semaines
-   - Première semaine pré-remplie avec exemples
+   - Template pour les 5 parties
+   - Première partie pré-remplie avec exemples
    - Structure pour documenter l'usage de l'IA
 
 5. **QUICKSTART.md**
@@ -36,15 +36,15 @@ Votre projet **projet3AI** est maintenant complètement configuré avec:
    - Configuration rapide
 
 6. **ROADMAP.md**
-   - Plan détaillé des 5 semaines
-   - Tâches spécifiques par semaine
+   - Plan détaillé des 5 parties
+   - Tâches spécifiques par partie
    - Conseils pour maximiser la note
    - Checklist de qualité
 
 ### Fichiers de configuration
 - **.env.example** - Template pour la clé API
 - **.gitignore** - Protection des fichiers sensibles
-- **utils/chat_manager.py** - Module LangChain prêt pour semaine 3
+- **utils/chat_manager.py** - Module LangChain prêt pour partie 3
 
 ---
 
@@ -111,14 +111,14 @@ git push
 
 ---
 
-## 📋 Checklist Semaine 1
+## 📋 Checklist Partie 1
 
 - [ ] Projet téléchargé et déployé localement
 - [ ] Clé API OpenAI configurée
 - [ ] Application testée et fonctionnelle
 - [ ] Premier commit Git effectué
 - [ ] Enseignant invité sur GitHub
-- [ ] Journal de bord semaine 1 mis à jour
+- [ ] Journal de bord partie 1 mis à jour
 - [ ] ROADMAP.md lu et compris
 
 ---
@@ -129,12 +129,12 @@ git push
 ✅ **Code professionnel** - Gestion d'erreurs, commentaires, structure claire
 ✅ **Documentation complète** - README, QUICKSTART, ROADMAP
 ✅ **Suivi rigoureux** - Journal de bord template
-✅ **Planification** - Feuille de route des 5 semaines
+✅ **Planification** - Feuille de route des 5 parties
 ✅ **Best practices** - .gitignore, .env, virtualenv
 
 ### Pour maximiser votre note:
 
-**Semaine 2**: Ajoutez le streaming des réponses (très impressionnant visuellement)
+**Partie 2**: Ajoutez le streaming des réponses (très impressionnant visuellement)
 ```python
 # Dans app.py, remplacez l'appel API par:
 stream = client.chat.completions.create(
@@ -147,11 +147,11 @@ for chunk in stream:
     # Afficher progressivement
 ```
 
-**Semaine 3**: LangChain avec le module `chat_manager.py` déjà préparé
+**Partie 3**: LangChain avec le module `chat_manager.py` déjà préparé
 
-**Semaine 4**: RAG (chat avec documents) - c'est la fonctionnalité "wow" recommandée
+**Partie 4**: RAG (chat avec documents) - c'est la fonctionnalité "wow" recommandée
 
-**Semaine 5**: Déployez sur Streamlit Cloud (gratuit, impressionnant)
+**Partie 5**: Déployez sur Streamlit Cloud (gratuit, impressionnant)
 
 ---
 
@@ -185,7 +185,7 @@ J'ai dû adapter le code pour gérer les chunks de réponse.
 
 ## 📊 Estimation du temps
 
-| Semaine | Tâches | Temps estimé |
+| Partie | Tâches | Temps estimé |
 |---------|--------|--------------|
 | 1 | Setup + app de base | 6-8h ✅ FAIT |
 | 2 | UX + streaming | 8-10h |
@@ -194,7 +194,7 @@ J'ai dû adapter le code pour gérer les chunks de réponse.
 | 5 | Rapport + démo | 10-12h |
 | **Total** | | **46-57 heures** |
 
-Répartition recommandée: 2h/jour sur 5 semaines = succès assuré! 🎯
+Répartition recommandée: 2h/jour sur 5 parties = succès assuré! 🎯
 
 ---
 

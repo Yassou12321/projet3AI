@@ -1,15 +1,15 @@
 # 📔 Journal de bord - Projet 3
 
 ## Instructions
-Chaque semaine, documenter:
+Chaque partie, documenter:
 - Les tâches réalisées
 - Les apprentissages faits avec l'aide de l'IA
 - Les difficultés rencontrées
-- Les objectifs de la semaine suivante
+- Les objectifs de la partie suivante
 
 ---
 
-## Semaine 1
+## Partie 1
 
 ### 👤 Yassine Adibe
 
@@ -67,13 +67,13 @@ Chaque semaine, documenter:
 - **OpenAI API**: 7 USD + taxes = **8 USD total**
 - Note: Utilisation de gpt-4o-mini pour minimiser les coûts (~$0.15 par 1M tokens)
 
-#### 🎯 Objectifs semaine 2
+#### 🎯 Objectifs partie 2
 - [ ] Améliorer l'interface utilisateur (design, UX)
 - [ ] Ajouter le streaming des réponses (affichage progressif)
 - [ ] Tester avec différents modèles GPT
 - [ ] Optimiser la gestion des tokens
 - [ ] Commencer la documentation pour le rapport final
-- [ ] Préparer l'intégration LangChain (semaine 3)
+- [ ] Préparer l'intégration LangChain (partie 3)
 
 #### 💭 Réflexions
 - Le projet avance bien, la base est solide
@@ -89,28 +89,69 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 2
+## Partie 2
 
 ### 👤 Yassine Adibe
 
 #### 📋 Tâches réalisées
-- [ ] À compléter...
+- [x] Implémentation du streaming des réponses (affichage progressif)
+- [x] Correction du bug assistant_response → full_response
+- [x] Amélioration de l'expérience utilisateur avec curseur animé
+- [x] Refonte complète du design (style Windows Vista)
+- [x] Ajout des fonctionnalités d'export (TXT, JSON, Markdown)
+- [x] Optimiser la gestion des tokens
+- [x] Commencer la documentation pour le rapport final
+- [x] Préparer l'intégration LangChain (partie 3)
 
 #### 🤖 Apprentissages avec l'IA
-- À compléter...
+**Outils utilisés**: Claude
 
+1. **Streaming OpenAI API**
+   - Prompt: "Comment implémenter le streaming dans Streamlit avec OpenAI?"
+   - Résultat: Code avec `stream=True` et boucle for pour affichage progressif
+   - Apprentissage: Le streaming améliore considérablement l'UX - l'utilisateur voit la réponse se construire en temps réel au lieu d'attendre
+   - Différence technique: `stream=True` retourne des chunks au lieu d'une réponse complète
+
+2. **Debugging avec IA**
+   - Problème: Erreur "assistant_response is not defined"
+   - Solution: Variable renommée de `assistant_response` à `full_response`
+   - Apprentissage: Importance de la cohérence des noms de variables lors des modifications
+
+3. **Design Windows Vista avec CSS**
+   - Prompt: "Recréer le style du site Windows Vista, utilise le css de ce site pour t'inspirer [https://frutigeraeroarchive.org/
+   ](https://frutigeraeroarchive.org/)"
+   - Résultat: CSS complet avec glassmorphism, gradients sombres, et accents verts
+   - Apprentissage: L'esthétique Windows Vista repose sur des panneaux sombres semi-transparents avec des effets de profondeur (inset shadows, backdrop-filter)
+   - Détails techniques: Utilisation de `rgba()` pour transparence, `backdrop-filter: blur()` pour effet verre
+
+4. **Système d'export multi-format**
+   - Prompt: "Créer un système d'export de conversations en plusieurs formats"
+   - Résultat: 3 fonctions d'export (TXT, JSON, Markdown) avec download buttons
+   - Apprentissage: `st.download_button()` permet de générer des fichiers dynamiquement côté client
+   - Bonus: Noms de fichiers avec timestamps automatiques
 #### 🚧 Difficultés rencontrées
-- À compléter...
+1. **Variable non définie**
+   - Problème: Erreur après implémentation du streaming
+   - Solution: Changement de `assistant_response` à `full_response` dans l'append
+   - Temps perdu: ~5 minutes
 
-#### 🎯 Objectifs semaine 3
-- À compléter...
+#### 🎯 Préparation Partie 3 - LangChain
+- [x] Module `chat_manager.py` créé et documenté
+- [x] Dépendances LangChain déjà installées
+- [x] Structure de code prête pour intégration
+- [ ] Tests avec ConversationChain (Partie 3)
+- [ ] Implémentation mémoire avancée (Partie 3)
 
-#### ⏱️ Temps investi
-- À compléter...
+#### 💭 Réflexions
+- Le design Frutiger Aero donne une identité visuelle forte au projet
+- Le streaming + export rendent l'application très professionnelle
+- L'utilisation de CSS avancé (glassmorphism, gradients) a demandé du temps mais le résultat en vaut la peine
+- Le projet dépasse maintenant les attentes initiales en termes de design
+- Prochaine étape: intégrer LangChain pour la gestion de mémoire avancée (Partie 3)
 
 ---
 
-## Semaine 3
+## Partie 3
 
 ### 👤 Yassine Adibe
 
@@ -119,7 +160,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 4
+## Partie 4
 
 ### 👤 Yassine Adibe
 
@@ -128,7 +169,7 @@ Chaque semaine, documenter:
 
 ---
 
-## Semaine 5
+## Partie 5
 
 ### 👤 Yassine Adibe
 

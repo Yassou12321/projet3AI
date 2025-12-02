@@ -38,19 +38,19 @@ Documentation professionnelle avec:
 
 #### 3. **journal.md** (3.9KB)
 Template de journal de bord avec:
-- Structure pour 5 semaines
-- Semaine 1 pré-remplie avec exemples réels
+- Structure pour 5 parties
+- Partie 1 pré-remplie avec exemples réels
 - Sections: Tâches, Apprentissages IA, Difficultés, Objectifs
 - Format cohérent et facile à suivre
 - Rappels pour documenter l'usage de l'IA
 
 #### 4. **ROADMAP.md** (9.6KB) 🗺️
-Plan détaillé des 5 semaines:
-- Semaine 1: Configuration et base ✅
-- Semaine 2: Amélioration UX et streaming
-- Semaine 3: Intégration LangChain
-- Semaine 4: Fonctionnalités avancées (RAG recommandé)
-- Semaine 5: Finalisation et démo
+Plan détaillé des 5 parties:
+- Partie 1: Configuration et base ✅
+- Partie 2: Amélioration UX et streaming
+- Partie 3: Intégration LangChain
+- Partie 4: Fonctionnalités avancées (RAG recommandé)
+- Partie 5: Finalisation et démo
 - Conseils pour maximiser chaque critère d'évaluation
 - Checklist de qualité
 - Métriques de réussite
@@ -66,10 +66,10 @@ Guide de démarrage rapide:
 #### 6. **NEXT_STEPS.md** (6.7KB) 📋
 Guide des prochaines étapes:
 - Actions immédiates à faire
-- Checklist semaine 1
+- Checklist partie 1
 - Ce qui distingue votre projet
 - Astuces pour documenter l'usage de l'IA
-- Estimation du temps par semaine
+- Estimation du temps par partie
 - Ressources utiles
 
 #### 7. **requirements.txt** (409 bytes)
@@ -77,7 +77,7 @@ Dépendances complètes:
 - streamlit >= 1.31.0
 - openai >= 1.10.0
 - python-dotenv >= 1.0.0
-- langchain >= 0.1.0 (préparé pour semaine 3)
+- langchain >= 0.1.0 (préparé pour partie 3)
 - langchain-openai >= 0.0.5
 - langchain-community >= 0.0.20
 - Dépendances optionnelles commentées (RAG, data analysis, voice)
@@ -106,7 +106,7 @@ Protection des fichiers sensibles:
 ### 📁 Module utilitaire (1 fichier)
 
 #### 11. **utils/chat_manager.py**
-Module LangChain prêt pour la semaine 3:
+Module LangChain prêt pour la partie 3:
 - Classe ChatManager avec mémoire conversationnelle
 - Méthodes: chat(), clear_memory(), get_memory()
 - Configuration flexible (modèle, température)
@@ -127,7 +127,7 @@ Module LangChain prêt pour la semaine 3:
 
 ## 🎯 Fonctionnalités déjà implémentées
 
-### ✅ Semaine 1 - TERMINÉE
+### ✅ Partie 1 - TERMINÉE
 - [x] Structure de projet professionnelle
 - [x] Application Streamlit fonctionnelle
 - [x] Intégration OpenAI API
@@ -140,25 +140,25 @@ Module LangChain prêt pour la semaine 3:
 - [x] Journal de bord initialisé
 - [x] Roadmap détaillée
 
-### 🔜 Prochaines semaines - À FAIRE
+### 🔜 Prochaines parties - À FAIRE
 
-**Semaine 2** (8-10h estimées)
+**Partie 2** (8-10h estimées)
 - [ ] Streaming des réponses (affichage progressif)
 - [ ] Amélioration du design
 - [ ] Export de conversations
 - [ ] Tests avec différents modèles
 
-**Semaine 3** (10-12h estimées)
+**Partie 3** (10-12h estimées)
 - [ ] Intégration LangChain
 - [ ] Mémoire conversationnelle avancée
 - [ ] Modes de personnalité
 
-**Semaine 4** (12-15h estimées)
+**Partie 4** (12-15h estimées)
 - [ ] RAG - Chat avec documents (recommandé)
 - [ ] OU Analytics dashboard
 - [ ] OU Fonctionnalités vocales
 
-**Semaine 5** (10-12h estimées)
+**Partie 5** (10-12h estimées)
 - [ ] Rapport final (3-5 pages)
 - [ ] Déploiement Streamlit Cloud
 - [ ] Démonstration (10 min)
@@ -224,7 +224,7 @@ git push -u origin main
 2. **Documentation exhaustive**
    - 6 fichiers markdown détaillés
    - Instructions claires et testées
-   - Roadmap des 5 semaines
+   - Roadmap des 5 parties
    - Guide de troubleshooting
 
 3. **Planification solide**
@@ -249,7 +249,7 @@ git push -u origin main
 
 ## 📈 Progression suggérée
 
-| Semaine | Focus | Temps | Fichiers modifiés |
+| Partie | Focus | Temps | Fichiers modifiés |
 |---------|-------|-------|-------------------|
 | 1 | Setup + base | 6-8h | Tous (setup initial) |
 | 2 | UX + streaming | 8-10h | app.py, journal.md |
@@ -257,7 +257,7 @@ git push -u origin main
 | 4 | Features avancées | 12-15h | Nouveaux modules |
 | 5 | Finalisations | 10-12h | Rapport, démo |
 
-**Total**: 46-57 heures sur 5 semaines = **~2h/jour** ✅
+**Total**: 46-57 heures sur 5 parties = **~2h/jour** ✅
 
 ---
 
@@ -313,8 +313,8 @@ git push -u origin main
 - ✅ Rappels de commits
 
 **Vous devez:**
-- Commits réguliers (3-5/semaine)
-- Journal mis à jour chaque semaine
+- Commits réguliers (3-5/partie)
+- Journal mis à jour chaque partie
 - Communication avec enseignant
 
 ---
@@ -323,13 +323,13 @@ git push -u origin main
 
 ### ✅ À FAIRE absolument
 1. **Commits réguliers** - Pas tout à la fin!
-2. **Journal hebdomadaire** - Documenter chaque semaine
+2. **Journal hebdomadaire** - Documenter chaque partie
 3. **Tester fréquemment** - Éviter les bugs de dernière minute
 4. **Demander de l'aide** - L'enseignant est là pour ça
 5. **Être critique** - Analyse réflexive de l'IA
 
 ### ❌ À ÉVITER
-1. Tout faire en dernière semaine
+1. Tout faire en dernière partie
 2. Copier-coller sans comprendre
 3. Oublier de documenter l'usage de l'IA
 4. Négliger les tests
@@ -361,8 +361,8 @@ git push -u origin main
 Ce template vous donne une **longueur d'avance massive** sur le projet.
 
 ### Ce qui est fait:
-- ✅ 60% de la Semaine 1
-- ✅ Structure pour les 5 semaines
+- ✅ 60% de la Partie 1
+- ✅ Structure pour les 5 parties
 - ✅ Documentation professionnelle
 - ✅ Base de code solide
 
@@ -371,7 +371,7 @@ Ce template vous donne une **longueur d'avance massive** sur le projet.
 - 🔜 Tester l'application
 - 🔜 Premier commit
 - 🔜 Inviter l'enseignant
-- 🔜 Continuer avec semaine 2
+- 🔜 Continuer avec partie 2
 
 **Temps économisé**: 6-8 heures de setup fastidieux ⏱️
 
@@ -421,7 +421,7 @@ Puis:
 - [ ] Commit initial sur GitHub
 - [ ] Inviter l'enseignant
 - [ ] Mettre à jour journal.md
-- [ ] Lire ROADMAP.md semaine 2
+- [ ] Lire ROADMAP.md partie 2
 
 ---
 
