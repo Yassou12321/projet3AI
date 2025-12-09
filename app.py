@@ -89,8 +89,6 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
-# Style CSS personnalisé
-# Style CSS personnalisé - Frutiger Aero Edition
 # Style CSS personnalisé - Frutiger Aero Archive Style
 st.markdown("""
 <style>
@@ -101,12 +99,13 @@ st.markdown("""
         font-family: 'Segoe UI', 'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
     }
     
-    /* Background - Dark with subtle texture */
+    /* Background - Dark with green ambient glow */
     .stApp {
         background-color: #303030;
         background-image: 
-            radial-gradient(circle at 20% 50%, rgba(61, 218, 86, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(61, 218, 86, 0.02) 0%, transparent 50%);
+            radial-gradient(circle at 20% 50%, rgba(61, 218, 86, 0.06) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(61, 218, 86, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(60, 218, 86, 0.02) 0%, transparent 80%);
     }
     
     /* Remove default streamlit padding */
@@ -116,47 +115,121 @@ st.markdown("""
         max-width: 900px;
     }
     
-    /* Chat messages - Glossy dark panels */
+    /* Chat messages - Windows Vista glass style with multi-layer borders */
     .stChatMessage {
-        background: rgba(39, 39, 39, 0.85);
-        border: 1px solid #3b3b3b;
-        border-radius: 8px;
+        background: linear-gradient(
+            to bottom,
+            rgba(48, 48, 48, 0.9) 0%,
+            rgba(26, 26, 26, 0.85) 100%
+        );
+        border-top: 1px solid #424242;
+        border-left: 1px solid #424242;
+        border-bottom: 1px solid #131313;
+        border-right: 1px solid #424242;
+        border-radius: 6px;
         padding: 15px;
         margin: 10px 0;
-        backdrop-filter: blur(1px) saturate(150%);
+        backdrop-filter: blur(3px) saturate(150%);
         box-shadow: 
-            rgba(0, 0, 0, 0.25) 0px 14px 28px,
-            rgba(0, 0, 0, 0.22) 0px 10px 10px,
-            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            inset 0 0 8px rgba(255, 255, 255, 0.08),
+            0 5px 15px rgba(0, 0, 0, 0.5),
+            0 2px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
         transition: all 0.2s ease;
     }
-    
+
+    /* Glass shine effect on messages */
+    .stChatMessage:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%
+        );
+        border-radius: 6px 6px 0 0;
+        pointer-events: none;
+    }
+
     .stChatMessage:hover {
-        transform: translateY(-2px);
+        transform: scale(1.02);
+        transition-duration: 0.15s;
         box-shadow: 
-            rgba(0, 0, 0, 0.3) 0px 16px 32px,
-            rgba(0, 0, 0, 0.25) 0px 12px 12px,
-            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 0 10px rgba(255, 255, 255, 0.1),
+            0 8px 20px rgba(0, 0, 0, 0.6);
     }
     
-    /* User messages - Subtle green tint */
+    /* User messages - Windows Vista green glass with INTENSE glow */
     .stChatMessage[data-testid="user-message"] {
         background: linear-gradient(
             to bottom,
-            rgba(61, 218, 86, 0.12) 0%,
-            rgba(39, 39, 39, 0.85) 30%
+            rgba(61, 218, 86, 0.25) 0%,
+            rgba(35, 105, 47, 0.2) 50%,
+            rgba(26, 26, 26, 0.9) 100%
         );
-        border-left: 3px solid #3cda56;
+        border-top: 1px solid rgba(158, 253, 150, 0.4);
+        border-left: 1px solid rgba(158, 253, 150, 0.3);
+        border-bottom: 1px solid rgba(20, 80, 30, 0.8);
+        border-right: 1px solid rgba(60, 218, 86, 0.4);
+        box-shadow: 
+            inset 0 1px 0 rgba(158, 253, 150, 0.3),
+            inset 0 0 15px rgba(60, 218, 86, 0.15),
+            0 5px 15px rgba(0, 0, 0, 0.5),
+            0 0 25px rgba(60, 218, 86, 0.3),
+            0 0 40px rgba(60, 218, 86, 0.15);
+    }
+
+    .stChatMessage[data-testid="user-message"]:before {
+        background: linear-gradient(
+            to bottom,
+            rgba(158, 253, 150, 0.35) 0%,
+            rgba(60, 218, 86, 0.15) 50%,
+            transparent 100%
+        );
+    }
+
+    .stChatMessage[data-testid="user-message"]:hover {
+        transform: scale(1.02);
+        transition-duration: 0.15s;
+        box-shadow: 
+            inset 0 1px 0 rgba(158, 253, 150, 0.35),
+            inset 0 0 20px rgba(60, 218, 86, 0.2),
+            0 8px 20px rgba(0, 0, 0, 0.6),
+            0 0 35px rgba(60, 218, 86, 0.4),
+            0 0 50px rgba(60, 218, 86, 0.2);
     }
     
-    /* Assistant messages - Darker with accent */
+    /* Assistant messages - Dark glass with multi-layer borders */
     .stChatMessage[data-testid="assistant-message"] {
         background: linear-gradient(
             to bottom,
-            rgba(50, 50, 50, 0.9) 0%,
-            rgba(35, 35, 35, 0.85) 100%
+            rgba(45, 45, 45, 0.92) 0%,
+            rgba(30, 30, 30, 0.9) 100%
         );
-        border-left: 3px solid #686868;
+        border-top: 1px solid #272727;
+        border-left: 1px solid #272727;
+        border-right: 1px solid #3f3f3f;
+        border-bottom: 1px solid #3f3f3f;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 0 8px rgba(255, 255, 255, 0.05),
+            0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .stChatMessage[data-testid="assistant-message"]:before {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%
+        );
     }
     
     /* Title styling */
@@ -268,12 +341,116 @@ st.markdown("""
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
     
-    /* Input fields */
+    /* Chat input container - Vista glass panel */
     .stChatInputContainer {
-        background: rgba(39, 39, 39, 0.8);
-        border-top: 1px solid #3b3b3b;
-        backdrop-filter: blur(1px);
-        padding-top: 1rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(48, 48, 48, 0.85) 0%,
+            rgba(26, 26, 26, 0.9) 100%
+        ) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(3px) saturate(150%) !important;
+        padding: 15px !important;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 -5px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    /* Chat input field - Frutiger Aero multi-border style */
+    .stChatInputContainer textarea {
+        background: linear-gradient(
+            to bottom,
+            rgba(26, 26, 26, 0.95) 0%,
+            rgba(19, 19, 19, 0.95) 100%
+        ) !important;
+        border-top: 1px solid #272727 !important;
+        border-left: 1px solid #272727 !important;
+        border-right: 1px solid #3f3f3f !important;
+        border-bottom: 1px solid #3f3f3f !important;
+        border-radius: 6px !important;
+        color: #dadada !important;
+        box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.6),
+            inset 0 0 8px rgba(0, 0, 0, 0.4),
+            0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        padding: 12px !important;
+        font-family: 'Segoe UI', sans-serif !important;
+    }
+
+    .stChatInputContainer textarea:focus {
+        border-top: 1px solid rgba(158, 253, 150, 0.4) !important;
+        border-left: 1px solid rgba(158, 253, 150, 0.3) !important;
+        border-right: 1px solid #3cda56 !important;
+        border-bottom: 1px solid #3cda56 !important;
+        box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.6),
+            inset 0 0 8px rgba(0, 0, 0, 0.4),
+            0 0 15px rgba(60, 218, 86, 0.5),
+            0 0 25px rgba(60, 218, 86, 0.3),
+            0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        outline: none !important;
+    }
+    
+    /* Send button - Windows Vista glossy style */
+    .stChatInputContainer button {
+        background: linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            #9efd96 3%,
+            #32912a 30%,
+            #185815 55%,
+            #0b3112 55%,
+            #1a5c1e 100%
+        ) !important;
+        border: 1px solid black !important;
+        border-radius: 6px !important;
+        color: white !important;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.4),
+            0 0 8px rgba(60, 218, 86, 0.2) !important;
+        transition: all 0.15s ease !important;
+        position: relative !important;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .stChatInputContainer button:before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 50% !important;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.1) 100%
+        ) !important;
+        border-radius: 6px 6px 0 0 !important;
+        pointer-events: none !important;
+    }
+
+    .stChatInputContainer button:hover {
+        background: linear-gradient(
+            to bottom,
+            #9efd96 0%,
+            #32912a 30%,
+            #185815 56%,
+            #0b3112 56%,
+            #31bb3a 100%
+        ) !important;
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 2px 6px rgba(0, 0, 0, 0.5),
+            0 0 15px rgba(60, 218, 86, 0.4) !important;
+        transform: scale(0.98) !important;
+    }
+
+    .stChatInputContainer button:active {
+        box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.3),
+            0 1px 2px rgba(0, 0, 0, 0.4) !important;
+        transform: scale(0.96) !important;
     }
     
     /* Metrics - Green accent */
@@ -298,7 +475,7 @@ st.markdown("""
         color: #dadada !important;
     }
     
-    /* Slider - Dark background like sidebar */
+    /* Slider */
     .stSlider {
         background: transparent !important;
     }
@@ -311,14 +488,12 @@ st.markdown("""
         background: transparent !important;
     }
 
-    /* Slider track */
     .stSlider [data-baseweb="slider-track"] {
         background: rgba(60, 218, 86, 0.3) !important;
         height: 6px !important;
         border-radius: 3px;
     }
 
-    /* Slider filled track (progress) */
     .stSlider [data-baseweb="slider-track"] > div:first-child {
         background: linear-gradient(90deg, #32912a, #3cda56) !important;
     }
@@ -423,6 +598,7 @@ st.markdown("""
         line-height: 1.6;
         text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.8);
     }
+    
     /* Download buttons styling */
     [data-testid="stDownloadButton"] button {
         background: linear-gradient(
@@ -438,6 +614,7 @@ st.markdown("""
         border: 1px solid #003d6b !important;
         font-size: 0.85em !important;
         padding: 6px 12px !important;
+        position: relative !important;
     }
 
     [data-testid="stDownloadButton"] button:hover {
