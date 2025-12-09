@@ -13,6 +13,7 @@ from datetime import datetime
 import json
 from datetime import datetime
 import tiktoken
+from utils.chat_manager import ChatManager
 
 def export_to_txt():
     """Exporte la conversation en format TXT"""
@@ -481,6 +482,15 @@ if "messages" not in st.session_state:
 if "total_tokens" not in st.session_state:
     st.session_state.total_tokens = 0
 
+if "chat_manager" not in st.session_state:
+    st.session_state.chat_manager = None
+
+if "current_mode" not in st.session_state:
+    st.session_state.current_mode = "general"
+
+if "use_langchain" not in st.session_state:
+    st.session_state.use_langchain = False
+    
 # Sidebar - Configuration
 with st.sidebar:
     st.title("⚙️ Configuration")
@@ -514,7 +524,43 @@ with st.sidebar:
     )
     
     st.divider()
-    
+
+    st.subheader("🔗 LangChain")
+    use_langchain = st.checkbox(
+        "Utiliser LangChain",
+        value=st.session_state.use_langchain,
+        help="Active la gestion avancée de mémoire avec LangChain (désactive le streaming)"
+    )
+
+    if use_langchain != st.session_state.use_langchain:
+        st.session_state.use_langchain = use_langchain
+        st.rerun()
+
+    # Mode de conversation (seulement si LangChain activé)
+    if st.session_state.use_langchain:
+        mode_options = ChatManager.get_available_modes()
+        selected_mode = st.selectbox(
+            "Mode de conversation",
+            options=list(mode_options.keys()),
+            format_func=lambda x: mode_options[x],
+            index=list(mode_options.keys()).index(st.session_state.current_mode),
+            help="Chaque mode adapte le comportement de l'assistant"
+        )
+        
+        # Créer ou mettre à jour le ChatManager
+        if st.session_state.chat_manager is None or selected_mode != st.session_state.current_mode:
+            st.session_state.current_mode = selected_mode
+            st.session_state.chat_manager = ChatManager(
+                model_name=model,
+                temperature=temperature,
+                mode=selected_mode
+            )
+            if selected_mode != st.session_state.current_mode:
+                st.rerun()
+    else:
+        st.info("💡 Active LangChain pour accéder aux modes de conversation avancés")
+
+    st.divider()
     # Statistiques
     st.subheader("📊 Statistiques")
     st.metric("Messages échangés", len(st.session_state.messages))
@@ -636,6 +682,72 @@ if prompt := st.chat_input("Posez votre question..."):
         full_response = ""
         
         try:
+            if st.session_state.use_langchain and st.session_state.chat_manager:
+                # ===== MODE LANGCHAIN (sans streaming) =====
+                with st.spinner("🧠 LangChain réfléchit..."):
+                    # Utiliser ChatManager
+                    full_response = st.session_state.chat_manager.chat(prompt)
+                
+                # Afficher la réponse
+                message_placeholder.markdown(full_response)
+                
+                # Compter les tokens
+                prompt_tokens = count_tokens(prompt, model)
+                completion_tokens = count_tokens(full_response, model)
+                total_tokens = prompt_tokens + completion_tokens
+                st.session_state.total_tokens += total_tokens
+                
+            else:
+                # ===== MODE STREAMING CLASSIQUE (sans LangChain) =====
+                # Préparer les messages pour l'API (sans timestamps)
+                api_messages = [
+                    {"role": m["role"], "content": m["content"]}
+                    for m in st.session_state.messages
+                ]
+                
+                # Appel à l'API OpenAI avec STREAMING
+                stream = client.chat.completions.create(
+                    model=model,
+                    messages=api_messages,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    stream=True
+                )
+                
+                # Afficher la réponse progressivement
+                for chunk in stream:
+                    if chunk.choices[0].delta.content is not None:
+                        full_response += chunk.choices[0].delta.content
+                        message_placeholder.markdown(full_response + "▌")
+                
+                # Afficher la réponse finale sans curseur
+                message_placeholder.markdown(full_response)
+                
+                # Compter les tokens précisément avec tiktoken
+                prompt_tokens = sum(count_tokens(msg["content"], model) for msg in api_messages)
+                completion_tokens = count_tokens(full_response, model)
+                total_tokens = prompt_tokens + completion_tokens
+                st.session_state.total_tokens += total_tokens
+            
+            # Timestamp et ajout à l'historique (commun aux 2 modes)
+            response_timestamp = datetime.now().strftime("%H:%M:%S")
+            st.caption(f"⏰ {response_timestamp}")
+            
+            # Ajouter la réponse à l'historique
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": full_response,
+                "timestamp": response_timestamp
+            })
+            
+        except Exception as e:
+            error_message = f"❌ Erreur lors de la génération de la réponse: {str(e)}"
+            message_placeholder.error(error_message)
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": error_message,
+                "timestamp": datetime.now().strftime("%H:%M:%S")
+            })
             # Préparer les messages pour l'API (sans timestamps)
             api_messages = [
                 {"role": m["role"], "content": m["content"]}
