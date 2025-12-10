@@ -114,9 +114,7 @@ Voir journal.md pour les détails complets des interactions avec l'IA.
 
 ## Contexte académique
 
-**Cours**: Exploration de technologies avec IA  
 **Institution**: Cégep de Sherbrooke  
-**Enseignant**: nicolas.payre@cegepsherbrooke.qc.ca  
 **Durée**: Décembre 2024 (5 semaines)
 
 ## Liens
