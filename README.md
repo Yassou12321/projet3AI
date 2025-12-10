@@ -1,32 +1,33 @@
-# 🤖 Mini Application d'IA Conversationnelle
+# Application d'IA Conversationnelle
 
 **Projet 3 - Explorer une technologie à l'aide de l'intelligence artificielle**
 
-Création d'une application web interactive permettant de converser avec une IA en utilisant OpenAI API, LangChain et Streamlit.
+Application web interactive pour converser avec une IA utilisant OpenAI API, LangChain et Streamlit. Design inspiré du style Frutiger Aero avec effets glassmorphism.
 
-## 👥 Équipe
-- Yassine Adibe
+## Auteur
+Yassine Adibe
 
-## 💡 Sujet choisi
-**OpenAI API + LangChain + Streamlit**
+## Technologies
+- **OpenAI API** - Modèles de langage (GPT-4o, GPT-4o-mini, GPT-3.5-turbo)
+- **LangChain** - Gestion avancée de mémoire conversationnelle
+- **Streamlit** - Interface web interactive
+- **Python 3.12** - Langage principal
 
-Exploration de l'intégration entre les modèles de langage (LLM), la gestion de contexte (LangChain) et une interface web interactive (Streamlit). L'objectif est d'expérimenter comment combiner ces technologies pour concevoir un assistant intelligent capable de répondre de façon contextuelle à des questions.
-
-## 🚀 Installation
+## Installation
 
 ### Prérequis
 - Python 3.9 ou supérieur
-- Un compte OpenAI avec une clé API ([obtenir ici](https://platform.openai.com/api-keys))
+- Clé API OpenAI (obtenir sur platform.openai.com)
 
-### Étapes d'installation
+### Étapes
 
-1. **Cloner le dépôt**
+1. Cloner le dépôt
 ```bash
 git clone https://github.com/Yassou12321/projet3AI.git
 cd projet3AI
 ```
 
-2. **Créer un environnement virtuel**
+2. Créer un environnement virtuel
 ```bash
 python -m venv venv
 
@@ -37,123 +38,98 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-3. **Installer les dépendances**
+3. Installer les dépendances
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Configurer les variables d'environnement**
+4. Configurer la clé API
 ```bash
-# Copier le fichier exemple
-cp .env.example .env
-
-# Éditer .env et ajouter votre clé API OpenAI
-# OPENAI_API_KEY=sk-votre-clé-ici
+# Créer un fichier .env
+# Ajouter: OPENAI_API_KEY=votre-clé-ici
 ```
 
-5. **Lancer l'application**
+5. Lancer l'application
 ```bash
 streamlit run app.py
 ```
 
-L'application sera accessible à l'adresse: `http://localhost:8501`
+L'application sera accessible à http://localhost:8501
 
-## 📁 Structure du projet
+## Fonctionnalités
+
+### Interface
+- Design Frutiger Aero avec effets glassmorphism
+- Messages avec horodatage
+- Bulles de chat avec effets de glow
+- Fond animé avec gradients verts
+
+### Conversation
+- Streaming des réponses en temps réel
+- Mémoire conversationnelle basique
+- 4 modes LangChain disponibles:
+  - Assistant Général
+  - Tuteur de Code
+  - Analyste Structuré
+  - Mode Créatif
+
+### Configuration
+- Sélection du modèle (GPT-4o, GPT-4o-mini, GPT-3.5-turbo)
+- Ajustement de température (0.0 - 2.0)
+- Limite de tokens configurable
+- Toggle LangChain/Streaming
+
+### Fonctionnalités avancées
+- Comptage précis des tokens avec tiktoken
+- Estimation des coûts en temps réel
+- Export des conversations (TXT, JSON, Markdown)
+- Gestion d'erreurs robuste
+
+## Structure du projet
 
 ```
 projet3AI/
-│
 ├── app.py                 # Application principale Streamlit
 ├── requirements.txt       # Dépendances Python
-├── .env.example          # Template pour les variables d'environnement
-├── .gitignore            # Fichiers à ignorer par Git
+├── journal.md            # Journal de bord du projet
 ├── README.md             # Ce fichier
-├── journal.md            # Journal de bord hebdomadaire
-│
-└── utils/                # Modules utilitaires (à venir)
-    └── chat_manager.py   # Gestion LangChain (semaine 3)
+└── utils/
+    └── chat_manager.py   # Gestionnaire LangChain
 ```
 
-## ✨ Fonctionnalités actuelles
+## Utilisation de l'IA
 
-### Version 1.0 (Semaine 2)
-- ✅ Interface de chat interactive
-- ✅ Intégration OpenAI API
-- ✅ Mémoire conversationnelle
-- ✅ Sélection du modèle (GPT-4o-mini, GPT-4o, GPT-3.5-turbo)
-- ✅ Ajustement de la température
-- ✅ Suivi des tokens et estimation des coûts
-- ✅ Horodatage des messages
-- ✅ Gestion d'erreurs robuste
+L'IA (Claude d'Anthropic) a été utilisée comme partenaire de développement pour:
 
-## 🎯 Fonctionnalités prévues
+1. **Génération de code** - Architecture, fonctionnalités, intégrations
+2. **Débogage** - Identification et résolution d'erreurs
+3. **CSS avancé** - Design Frutiger Aero, effets glassmorphism
+4. **Documentation** - Commentaires, README, journal de bord
+5. **Apprentissage** - Concepts LangChain, streaming, prompts
 
-### Semaine 3
-- [ ] Intégration LangChain
-- [ ] Gestion avancée de la mémoire conversationnelle
-- [ ] Chaînes de prompts personnalisées
+Temps total investi: ~20 heures réparties sur 3 parties
+Coût total: 8 USD (OpenAI API)
 
-### Semaine 4
-- [ ] RAG (Retrieval Augmented Generation) - chat avec documents
-- [ ] Streaming des réponses en temps réel
-- [ ] Modes de personnalité multiples
-- [ ] Export de conversations (PDF/JSON)
+Voir journal.md pour les détails complets des interactions avec l'IA.
 
-### Semaine 5
-- [ ] Déploiement sur Streamlit Cloud
-- [ ] Documentation complète
-- [ ] Tests et optimisations
-- [ ] Rapport final
+## Contexte académique
 
-## 🛠️ Technologies utilisées
-
-| Technologie | Version | Utilisation |
-|------------|---------|-------------|
-| Python | 3.9+ | Langage principal |
-| Streamlit | 1.31+ | Interface web interactive |
-| OpenAI API | 1.10+ | Modèles de langage (GPT) |
-| LangChain | 0.1+ | Gestion de contexte et outils IA |
-| Python-dotenv | 1.0+ | Gestion des variables d'environnement |
-
-## 📊 Usage de l'IA dans le développement
-
-Ce projet utilise l'IA de plusieurs façons:
-
-1. **Génération de code**: Assistance pour la structure et les fonctionnalités
-2. **Débogage**: Identification et correction d'erreurs
-3. **Documentation**: Génération de commentaires et documentation
-4. **Apprentissage**: Clarification de concepts LangChain et Streamlit
-5. **Optimisation**: Suggestions d'amélioration du code
-
-Voir [journal.md](journal.md) pour les détails des interactions avec l'IA.
-
-## 🎓 Contexte académique
-
-**Cours**: Exploration de technologies  
+**Cours**: Exploration de technologies avec IA  
 **Institution**: Cégep de Sherbrooke  
-**Enseignant**: Nicolas Payre  
-**Durée**: 5 semaines  
+**Enseignant**: nicolas.payre@cegepsherbrooke.qc.ca  
+**Durée**: Décembre 2024 (5 semaines)
 
-## 📝 Critères d'évaluation
+## Liens
 
-- **Exploration technique** (30%): Compréhension et profondeur
-- **Utilisation de l'IA** (20%): Usage créatif et réfléchi
-- **Prototype/démo** (25%): Fonctionnalité et clarté
-- **Documentation** (15%): Rapport et réflexion critique
-- **Suivi du travail** (10%): Journal de bord et commits GitHub
-
-## 🔗 Liens utiles
-
+- [Dépôt GitHub](https://github.com/Yassou12321/projet3AI)
 - [Documentation Streamlit](https://docs.streamlit.io/)
 - [Documentation OpenAI](https://platform.openai.com/docs)
 - [Documentation LangChain](https://python.langchain.com/docs/get_started/introduction)
-- [Dépôt GitHub du projet](https://github.com/Yassou12321/projet3AI)
 
-## 📞 Contact
+## Licence
 
-**Yassine Adibe**  
-Email: via le dépôt GitHub
+Projet académique - Cégep de Sherbrooke
 
 ---
 
-*Dernière mise à jour: Décembre 2024*
+Dernière mise à jour: Décembre 2024
